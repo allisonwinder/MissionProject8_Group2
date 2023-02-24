@@ -55,7 +55,7 @@ namespace Mission8_Group2.Controllers
         {
             ViewBag.Categories = DbContext.Categories.ToList();
             var task = DbContext.responses.Single(x => x.MatrixId == taskid);
-            return View("Add", task);
+            return View("TaskManager", task);
         }
 
         [HttpPost]
