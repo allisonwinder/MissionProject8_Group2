@@ -20,7 +20,7 @@ namespace Mission8_Group2.Controllers
 
         public IActionResult Index()
         {
-            new tasks = DbContext.Responses
+            new tasks = DbContext.responses
                 .Include(x => x.Categories)
                 .ToList();
             return View(tasks);
@@ -34,7 +34,7 @@ namespace Mission8_Group2.Controllers
         }
 
         [HttpPost]
-        public IActionResult TaskManager(MatrixResponse tr)
+        public IActionResult Add(MatrixResponse tr)
         {
             if (ModelState.IsValid)
             {
@@ -53,8 +53,8 @@ namespace Mission8_Group2.Controllers
         public IActionResult Edit(int taskid)
         {
             ViewBag.Categories = DbContext.Categories.ToList();
-            var task = DbContext.Responses.Single(x => x.TaskId == taskid);
-            return View("TaskManager", task);
+            var task = DbContext.responses.Single(x => x.MatrixId == taskid);
+            return View("Add", task);
         }
 
         [HttpPost]
@@ -68,14 +68,14 @@ namespace Mission8_Group2.Controllers
         [HttpGet]
         public IActionResult Delete(int taskid)
         {
-            var task = DbContext.Responses.Single(x => x.TaskId == taskid);
+            var task = DbContext.responses.Single(x => x.MatrixId == taskid);
             return View(task);
         }
 
         [HttpPost]
         public IActionResult Delete(MatrixResponse tr)
         {
-            DbContext.Responses.Remove(tr);
+            DbContext.responses.Remove(tr);
             DbContext.SaveChanges();
             return RedirectToAction("Index");
         }
