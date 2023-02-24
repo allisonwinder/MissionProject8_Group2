@@ -11,16 +11,16 @@ namespace Mission8_Group2.Controllers
 {
     public class HomeController : Controller
     {
-        private TaskContext dbContext { get; set; }
+        private MatrixInfoContext DbContext { get; set; }
 
-        public HomeController(TaskContext someName)
+        public HomeController(MatrixInfoContext someName)
         {
-            dbContext = someName;
+            DbContext = someName;
         }
 
         public IActionResult Index()
         {
-            new tasks = dbContext.Responses
+            new tasks = DbContext.Responses
                 .Include(x => x.Categories)
                 .ToList();
             return View(tasks);
@@ -29,22 +29,22 @@ namespace Mission8_Group2.Controllers
         [HttpGet]
         public IActionResult TaskManager()
         {
-            ViewBag.Categories = dbContext.Categories.ToList();
+            ViewBag.Categories = DbContext.Categories.ToList();
             return View();
         }
 
         [HttpPost]
-        public IActionResult TaskManager(TaskResponse tr)
+        public IActionResult TaskManager(MatrixResponse tr)
         {
             if (ModelState.IsValid)
             {
-                dbContext.Add(tr);
-                dbContext.SaveChanges();
+                DbContext.Add(tr);
+                DbContext.SaveChanges();
                 return View("Index", tr);
             }
             else
             {
-                ViewBag.Categories = dbContext.Categories.ToList();
+                ViewBag.Categories = DbContext.Categories.ToList();
                 return View(tr);
             }
         }
@@ -52,31 +52,31 @@ namespace Mission8_Group2.Controllers
         [HttpGet]
         public IActionResult Edit(int taskid)
         {
-            ViewBag.Categories = dbContext.Categories.ToList();
-            var task = dbContext.Responses.Single(x => x.TaskId == taskid);
+            ViewBag.Categories = DbContext.Categories.ToList();
+            var task = DbContext.Responses.Single(x => x.TaskId == taskid);
             return View("TaskManager", task);
         }
 
         [HttpPost]
-        public IActionResult Edit(TaskResponse blah)
+        public IActionResult Edit(MatrixResponse blah)
         {
-            dbContext.Update(blah);
-            dbContext.SaveChanges();
+            DbContext.Update(blah);
+            DbContext.SaveChanges();
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult Delete(int taskid)
         {
-            var task = dbContext.Responses.Single(x => x.TaskId == taskid);
+            var task = DbContext.Responses.Single(x => x.TaskId == taskid);
             return View(task);
         }
 
         [HttpPost]
-        public IActionResult Delete(TaskResponse tr)
+        public IActionResult Delete(MatrixResponse tr)
         {
-            dbContext.Responses.Remove(tr);
-            dbContext.SaveChanges();
+            DbContext.Responses.Remove(tr);
+            DbContext.SaveChanges();
             return RedirectToAction("Index");
         }
     }
