@@ -28,14 +28,14 @@ namespace Mission8_Group2.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult TaskManager()
         {
             ViewBag.Categories = DbContext.Categories.ToList();
             return View();
         }
 
         [HttpPost]
-        public IActionResult Add(MatrixResponse tr)
+        public IActionResult TaskManager(MatrixResponse tr)
         {
             if (ModelState.IsValid)
             {
