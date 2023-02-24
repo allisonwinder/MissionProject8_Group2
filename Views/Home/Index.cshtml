@@ -9,53 +9,55 @@
 @model List<MatrixResponse>
 
 <table class="table table-danger table-striped">
-   
-        <thead class="font-weight-bold table-bordered">
-            <tr>
-                <td>Urgent</td>
-                <td>Not Urgent</td>
-            </tr>
-        </thead>
-                
-        <tbody>
-            @foreach (var x in Model) {
 
-                @if (x.Completed == false)
+    <thead class="font-weight-bold table-bordered">
+        <tr>
+            <td>Urgent</td>
+            <td>Not Urgent</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+
+            @if (x.Completed == false)
+            {
+
+                @if (x.Quadrant == 1)
                 {
+                    <tr>
 
-                    @if (x.Quadrant == 1) {
-                        <tr>
+                        <td>@x.Task</td>
+                    </tr>
+                }
 
-                            <td>@x.Task</td>
-                        </tr>
-                    }
+                @if (x.Quadrant == 2)
+                {
+                    <tr>
 
-                    @if (x.Quadrant == 2)
-                    {
-                        <tr>
-
-                            <td>@x.Task</td>
-                        </tr>
-                    }
-                    @if (x.Quadrant == 3)
-                    {
-                        <tr>
-                            <td>@x.Task</td>
-                        </tr>
-                    }
-                    @if (x.Quadrant == 4)
-                    {
-                        <tr>
-                            <td>@x.Task</td>
-                        </tr>
-                    }
+                        <td>@x.Task</td>
+                    </tr>
+                }
+                @if (x.Quadrant == 3)
+                {
+                    <tr>
+                        <td>@x.Task</td>
+                    </tr>
+                }
+                @if (x.Quadrant == 4)
+                {
+                    <tr>
+                        <td>@x.Task</td>
+                    </tr>
                 }
             }
-        </tbody> 
-                       
-                   
-       
-                  
-    
+        }
+    </tbody>
+
+
+
+
+
 </table>
 
