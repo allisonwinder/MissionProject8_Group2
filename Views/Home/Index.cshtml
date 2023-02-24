@@ -9,10 +9,9 @@
 @model List<MatrixResponse>
 
 <table class="table table-danger table-striped">
-    @{ foreach (x in Model)
-                    {
-                        if (x.Complete == false)
-                        {
+    @{ foreach ( var x in Model){
+          if (@x.Completed == false)
+          {
         <thead class="font-weight-bold table-bordered">
             <tr>
                 <td>Urgent</td>
