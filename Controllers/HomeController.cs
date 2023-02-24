@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission8_Group2.Models;
 using System;
@@ -20,14 +21,14 @@ namespace Mission8_Group2.Controllers
 
         public IActionResult Index()
         {
-            new tasks = DbContext.responses
-                .Include(x => x.Categories)
+            var tasks = DbContext.responses
+                .Include(x => x.Category)
                 .ToList();
             return View(tasks);
         }
 
         [HttpGet]
-        public IActionResult TaskManager()
+        public IActionResult Add()
         {
             ViewBag.Categories = DbContext.Categories.ToList();
             return View();
