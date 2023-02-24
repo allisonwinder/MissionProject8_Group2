@@ -10,7 +10,7 @@ namespace Mission8_Group2.Models
     {
         [Key]
         [Required]
-        public int CatergoryId { get; set; }
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; }
 
 
