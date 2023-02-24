@@ -18,9 +18,11 @@ namespace Mission8_Group2.Models
 
         public int Quadrant { get; set; }
 
-        public string Category { get; set; }
-
         public bool Completed { get; set; }
 
+        public string CategoryId { get; set; }
+        public Category Category { get; set; }
+    
     }
+
 }
