@@ -23,14 +23,14 @@ namespace Mission8_Group2.Models
         protected override void OnModelCreating(ModelBuilder Mb)
         {
             Mb.Entity<Category>().HasData(
-                new Category { CategoryId = 1, CategoryName = "Urgent/Important" },
-                new Category { CategoryId = 2, CategoryName = "Urgent/Unimportant" },
-                new Category { CategoryId = 3, CategoryName = "Not Urgent/Important" },
-                new Category { CategoryId = 4, CategoryName = "Not Urgent/Unimportant" }
+                new Category { CategoryId = 1, CategoryName = "Home" },
+                new Category { CategoryId = 2, CategoryName = "School" },
+                new Category { CategoryId = 3, CategoryName = "Work" },
+                new Category { CategoryId = 4, CategoryName = "Church" }
 
             );
 
-            Mb.Entity<MatrixResponse>().HasData(
+            /*Mb.Entity<MatrixResponse>().HasData(
 
                 new MatrixResponse
                 {
@@ -61,7 +61,7 @@ namespace Mission8_Group2.Models
                     Completed = true,
                     CategoryId = 4,
                 }
-            );
+            );*/
         }
     }
 }

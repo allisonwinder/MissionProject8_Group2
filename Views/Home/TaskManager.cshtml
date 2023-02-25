@@ -11,6 +11,7 @@
     <form method="post">
         <!--Add validation messages-->
         <div asp-validation-summary="All"></div>
+        <input asp-for="MatrixId" type="hidden" defaultValue="0" />
 
         <label asp-for="Task">Task: </label>
         <input asp-for="Task" />
@@ -47,6 +48,6 @@
         <br />
         <br />
 
-        <button type="submit"> Add/Edit Task </button>
+        <button type="submit"> Save </button>
     </form>
 </div>

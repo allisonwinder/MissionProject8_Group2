@@ -31,7 +31,9 @@ namespace Mission8_Group2.Controllers
         public IActionResult TaskManager()
         {
             ViewBag.Categories = DbContext.Categories.ToList();
-            return View();
+            MatrixResponse mr = new MatrixResponse();
+            mr.MatrixId = 0;
+            return View(mr);
         }
 
         [HttpPost]
@@ -59,11 +61,13 @@ namespace Mission8_Group2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(MatrixResponse blah)
+        public IActionResult Edit(MatrixResponse mr)
         {
-            DbContext.Update(blah);
+            DbContext.Update(mr);
             DbContext.SaveChanges();
+
             return RedirectToAction("Index");
+
         }
 
         [HttpGet]

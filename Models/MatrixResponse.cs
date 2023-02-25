@@ -20,8 +20,8 @@ namespace Mission8_Group2.Models
 
         public bool Completed { get; set; }
 
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
     
     }
 
