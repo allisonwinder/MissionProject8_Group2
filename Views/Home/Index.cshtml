@@ -1,107 +1,91 @@
-﻿
-<center>
-    <h1>Quadrants</h1>
-</center>
-
-@{ ViewData["Title"] = "Home Page"; }
+﻿@{ 
+    ViewData["Title"] = "Home Page";
+}
 
 
 @model List<MatrixResponse>
 
-<table class="table table-striped">
+<center>
+    <h1>Quadrants</h1>
+</center>
 
-    <thead class="font-weight-bold table-bordered">
-        <tr>
-            <td>Urgent</td>
-            <td>Not Urgent</td>
-        </tr>
-    </thead>
+ 
 
-    <tbody>
-        @foreach (var x in Model)
-        {
 
-            @if (x.Completed == false)
-            {
 
-                @if (x.Quadrant == 1)
+
+
+        <div class="row border-top border-bottom border-left border-right">
+            <div class="col-2 border-top border-bottom border-left border-right"> </div>
+            <div class="col-5 border-top border-bottom border-left border-right">Urgent </div>
+            <div class="col-5 border-top border-bottom border-left border-right">Not Urgent </div>
+
+        </div>
+        <div class="row">
+            <div class="col-2 border-top border-bottom border-left border-right">Important </div>
+            <div class="col-5 border-top border-bottom border-left border-right">
+                @foreach (var x in Model)
                 {
-                    <tr>
+                    @if (x.Completed == false & x.Quadrant == 1)
+                    {
 
-                        <td>@x.Task</td>
-                    </tr>
+                        @x.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.MatrixId">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.MatrixId">Delete</a>
+                        <br />
+
+                    }
                 }
 
-                @if (x.Quadrant == 2)
+            </div>
+            <div class="col-5 border-top border-bottom border-left border-right">
+                @foreach (var x in Model)
                 {
-                    <tr>
+                    @if (x.Completed == false & x.Quadrant == 2)
+                    {
 
-                        <td>@x.Task</td>
-                    </tr>
+                        @x.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.MatrixId">Edit</a>
+                                <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.MatrixId">Delete</a>
+                        <br />
+
+                    }
                 }
-                @if (x.Quadrant == 3)
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-2 border-top border-bottom border-left border-right">Not Important </div>
+            <div class="col-5 border-top border-bottom border-left border-right">
+                @foreach (var x in Model)
                 {
-                    <tr>
-                        <td>@x.Task</td>
-                    </tr>
+                    @if (x.Completed == false & x.Quadrant == 3)
+                    {
+
+                        @x.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.MatrixId">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.MatrixId">Delete</a>
+                        <br />
+
+                    }
                 }
-                @if (x.Quadrant == 4)
+            </div>
+            <div class="col-5 border-top border-bottom border-left border-right">
+                @foreach (var x in Model)
                 {
-                    <tr>
-                        <td>@x.Task</td>
-                    </tr>
+                    @if (x.Completed == false & x.Quadrant == 4)
+                    {
+
+                        @x.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.MatrixId">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.MatrixId">Delete</a>
+                        <br />
+
+                    }
                 }
-            }
-        }
-    </tbody>
+            </div>
 
-</table>
-    <br />
-    <br />
-    <h1>testg using divs</h1>
-    <div class="column">
-        <div class="row">hello</div>
-        <div class="row">hello </div>
-    </div>
-    <div class="row">
-        <div class="column">hello </div>
-        <div class="column"></div>
+        </div>
 
-    </div>
 
-    <div class="row">
-        <div class="column"></div>
-        <div class="column"></div>
 
-    </div>
 
-    <br />
-    <br />
-
-    <h1>Test using GPT</h1>
-
-    <table>
-        <tr>
-            <td class="top-left">
-                hello govna
-                @* Razor code for top-left quadrant *@
-            </td>
-            <td class="top-right">
-                test
-                @* Razor code for top-right quadrant *@
-            </td>
-        </tr>
-        <tr>
-            <td class="bottom-left">
-                test yo
-                @* Razor code for bottom-left quadrant *@
-            </td>
-            testing 
-            <td class="bottom-right">
-                @* Razor code for bottom-right quadrant *@
-            </td>
-        </tr>
-    </table>
 
 
 
