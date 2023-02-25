@@ -41,7 +41,7 @@ namespace Mission8_Group2.Controllers
             {
                 DbContext.Add(tr);
                 DbContext.SaveChanges();
-                return View("Confirmation", tr);
+                return View("ConfirmationPage", tr);
             }
             else
             {

@@ -1,3 +1,26 @@
 ﻿body {
+    background-image: url('img/background1.jpg');
+}
 
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    
+}
+
+label {
+    width: 100px;
+    display: inline-block;
+}
+
+.button{
+    background-color: darkgray;
+    border-color: black;
+    border-width: 5px;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
 }

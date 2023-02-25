@@ -1,9 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Task Manager";
 }
+
 @model Mission8_Group2.Models.MatrixResponse
 
 <h1>Add/Edit Task</h1>
+<br />
 
 <div>
     <form method="post">
@@ -13,13 +15,16 @@
         <label asp-for="Task">Task: </label>
         <input asp-for="Task" />
         <br />
+        <br />
 
         <label asp-for="DueDate">Due Date: </label>
         <input asp-for="DueDate" />
         <br />
+        <br />
 
         <label asp-for="Quadrant">Quadrant: </label>
         <input asp-for="Quadrant" />
+        <br />
         <br />
 
         <label asp-for="Category">Category: </label>
@@ -32,6 +37,7 @@
             }
         </select>
         <br />
+        <br />
 
         <label asp-for="Completed">Completed: </label>
         <select asp-for="Completed">
@@ -39,7 +45,8 @@
             <option value="False"> No </option>
         </select>
         <br />
+        <br />
 
-        <button type="submit"> Add/Edit Task </button>
+        <button class="button" type="submit"> Add/Edit Task </button>
     </form>
 </div>
