@@ -1,0 +1,11 @@
+﻿@{ ViewData["Title"] = "Delete Application";
+}
+@model MatrixResponse
+
+<h2>Confirm Deletion</h2>
+<h3>Are you sure you want to delete the record?</h3>
+<form method="post" asp-action="Delete">
+    <button type="submit">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+    <input type="hidden" asp-for="MatrixId" />
+</form>
